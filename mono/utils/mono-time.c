@@ -104,7 +104,7 @@ inline void test_time_and_possibly_refresh_cache(struct timeval* now)
 
 	timersub(now, &last_time, &difference);
 
-	long diff_microseconds = (difference.tv_sec * 1e6) + difference.tv_usec;
+	gint64 diff_microseconds = ((gint64)difference.tv_sec * 1e6) + difference.tv_usec;
 
 	if (diff_microseconds > max_delta_time_jump_before_cache_invalidation_us|| diff_microseconds < 0)
 	{
